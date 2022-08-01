@@ -1,13 +1,15 @@
 from Data import desc_list
+from Data import category_list
 
 
 class Transaction:
-    def __init__(self, date, description, amount, category):
+    def __init__(self, date, description, amount):
         self.date = date
         self.description = description
         self.amount = amount
-        self.category = category
+        self.category = "other"
         self.cleanup()
+        self.set_category()
 
     def cleanup(self):
         if("Zelle" in self.description):
@@ -26,6 +28,23 @@ class Transaction:
             for key in keys:
                 if key in self.description:
                     self.description = desc_list[key]
+                    break
+
+    def set_category(self):
+        if("Zelle" in self.description):
+            if(self.amount == 400.0):
+                self.category = "cash-in, rent"
+            elif(self.amount > 0):
+                self.category = "cash-in"
+            else:
+                self.category = "cash-out"
+        elif("VENMO" in self.description and self.amount == -1600.0):
+            self.category = "cash-out, rent"
+        else:
+            keys = category_list.keys()
+            for key in keys:
+                if key in self.description:
+                    self.category = category_list[key]
                     break
 
 

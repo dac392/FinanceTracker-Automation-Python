@@ -18,8 +18,7 @@ with open(file_name, mode='r') as csv_file:
             date = row[0]
             desc = row[1]
             amount = float(row[2].replace(',', ''))
-            category = 'other'
-            accountant.add(date, desc, amount, category)
+            accountant.add(date, desc, amount)
         count += 1
 
 accountant.print_transactions()

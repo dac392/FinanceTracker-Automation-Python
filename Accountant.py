@@ -5,8 +5,8 @@ class Accountant:
     def __init__(self):
         self.transactions = []  # Array of Trans elements
 
-    def add(self, date, description, amount, category):
-        t = Transaction(date, description, amount, category)
+    def add(self, date, description, amount):
+        t = Transaction(date, description, amount)
         self.transactions.append(t)
 
     def print_transactions(self):

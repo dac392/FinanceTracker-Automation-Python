@@ -15,3 +15,18 @@ desc_list = {
     "TARGET": "TARGET: PURCHASE",
     "PLANET FIT": "PlanetFitness: MEMBERSHIP"
 }
+
+category_list = {
+    "DISCOVER: PAYMENT": "cash-out, credit-card",
+    "PSEG: PAYMENT": "cash-out, electric",
+    "VENMO: PAYMENT": "cash-out",
+    "VENMO: CASHOUT": "cash-in",
+    "PAYROLL": "cash-in",
+    "BOA: DEPOSIT": "cash-in",
+    "VANGAURD: PURCAHSE": "cash-out, investment",
+    "I-BONDS: PURCHASE": "cash-out, investment",
+    "PURCHASE": "cash-out",
+    "PlanetFitness: MEMBERSHIP": "cash-out, membership",
+    "CashApp": "cash-out",
+    "PAYPAL": "cash-out"
+}
