@@ -3,9 +3,10 @@ import gspread
 
 from Accountant import Accountant
 
-MONTH = input('Which month are we doing today boss? ')
+MONTH = input('Which month are we doing today, boss? ')
+YEAR = input("Which year is this on, boss? ")
 
-file_name = f"statements/boa_{MONTH}.csv"
+file_name = f"statements/boa_{MONTH}{YEAR}.csv"
 count = 0
 accountant = Accountant()
 
@@ -22,5 +23,5 @@ with open(file_name, mode='r') as csv_file:
         count += 1
 
 accountant.print_transactions()
-sa = gspread.service_account()
-sh = sa.open("Personal Finances")
+# sa = gspread.service_account()
+# sh = sa.open("Personal Finances")

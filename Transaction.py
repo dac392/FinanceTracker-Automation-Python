@@ -10,15 +10,18 @@ class Transaction:
         self.cleanup()
 
     def cleanup(self):
-        keys = desc_list.keys()
-        for key in keys:
-            if key in self.description:
-                self.description = desc_list[key]
-                # print(self.description)
-                break
+        if("Zelle" in self.description):
+            person = self.description.split("; ")[1]
+            self.description = f"Zelle: {person}"
+        else:
+            keys = desc_list.keys()
+            for key in keys:
+                if key in self.description:
+                    self.description = desc_list[key]
+                    break
 
 
 if __name__ == "__main__":
     some = Transaction(
-        None, "VENMO DES:PAYMENT ID:XXXXX49432169 INDN:DIEGO CASTELLANOS CO ID:XXXXX81992 WEB", None, None)
-    some.cleanup()
+        None, "Zelle Transfer Conf# 2SY6MBAFK; Jose Henriquez", None, None)
+    # some.cleanup()
