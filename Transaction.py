@@ -13,6 +13,14 @@ class Transaction:
         if("Zelle" in self.description):
             person = self.description.split("; ")[1]
             self.description = f"Zelle: {person}"
+        elif("PAYPAL" in self.description):
+            subject = self.description.split(" ")[1].replace("*", "")
+            self.description = f"PAYPAL: {subject}"
+        elif("CASH APP" in self.description):
+            split = self.description.split(" ")
+            first = split[1].replace("APP*", "")
+            person = f"{first} {split[2]}"
+            self.description = f"CashApp: {person}"
         else:
             keys = desc_list.keys()
             for key in keys:
