@@ -12,5 +12,4 @@ desc_list = {
     "COSTCO": "COSTCO: PURCHASE",
     "WAL-MART": "WAL-MART: PURCHASE",
     "TARGET": "TARGET: PURCHASE"
-
 }

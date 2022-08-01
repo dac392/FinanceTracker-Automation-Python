@@ -1,4 +1,4 @@
-from Description_list import desc_list
+from Data import desc_list
 
 
 class Transaction:
