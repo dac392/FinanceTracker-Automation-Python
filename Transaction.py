@@ -11,6 +11,9 @@ class Transaction:
         self.cleanup()
         self.set_category()
 
+    def items_as_list(self):
+        return [self.date, self.description, self.category, self.amount]
+
     def cleanup(self):
         if("Zelle" in self.description):
             person = self.description.split("; ")[1]
