@@ -2,6 +2,7 @@ import csv
 import gspread
 import time
 from Accountant import Accountant
+from Data import months
 
 BOA_OFFSET = 7
 
@@ -66,11 +67,12 @@ if __name__ == "__main__":
     totals = bank_stmt.get_totals()
     sa = gspread.service_account()
     spreadsheet = sa.open("Personal Finances")
-    worksheet = spreadsheet.add_worksheet(
-        title=f"{MONTH}{YEAR}", rows="100", cols="20")
+    worksheet = spreadsheet.worksheet(months.get(MONTH))
+    # worksheet = spreadsheet.add_worksheet(
+    #     title=f"{MONTH}{YEAR}", rows="100", cols="20")
 
-    worksheet_setup(worksheet, totals["income"],
-                    totals["expenses"], totals["profit"])
+    # worksheet_setup(worksheet, totals["income"],
+    #                 totals["expenses"], totals["profit"])
     for transaction in bank_stmt.transactions:
         worksheet.insert_row(transaction.items_as_list(), 8)
         time.sleep(2)
